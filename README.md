@@ -1,6 +1,4 @@
 # Bitmap Viewer
-## stecdev 2026
-\-------------------------------------------------
 
 Basic .bmp file viewer. Currently only supports BM headers and uncompressed 24 BPP.
 
@@ -14,3 +12,5 @@ Basic .bmp file viewer. Currently only supports BM headers and uncompressed 24 B
   - ./bmpview /path/to/image.bmp
 
 If the file is supported, a window will open showing the image inside.
+
+stecdev 2026
