@@ -2,7 +2,7 @@
 ## stecdev 2026
 \-------------------------------------------------
 
-Basic .bmp file viewer. Currently only supports BM headers and uncompressed 24 BPP.
+Basic .bmp file viewer. Currently only supports BM headers and uncompressed 24 BPP images.
 
 ### Requirements:
 - Raylib (on system include path)
