@@ -95,28 +95,22 @@ int main(int argc, char* argv[]) {
 	InitWindow(width, height, title);
 	SetTargetFPS(60);
 
-	bool first = true;
-	while (!WindowShouldClose()) {
-		// draw loop (run once)
-
-		if (first) { // draw the actual image
-			BeginDrawing();
-			ClearBackground(GRAY);
-			// DrawRectangle(0, 0, 100, 100, RED);
-			for (int y = height - 1; y >= 0; y--) {
-				for (int x = 0; x < width; x++) {
-					uint8_t r, g, b;
-					fread(&b, 1, 1, img);
-					fread(&g, 1, 1, img);
-					fread(&r, 1, 1, img);
-					const Color p = {.r = r, .g = g, .b = b, .a = 255};
-					DrawPixel(x, y, p);
-				}
-			}
-			EndDrawing();
-			first = false;
+	// read & dump the image in an array of pixel values, plus draw initial image
+	Color pixels[width][height];
+	BeginDrawing();
+	ClearBackground(BLACK);
+	for (int y = height - 1; y >= 0; y--) {
+		for (int x = 0; x < width; x++) {
+			fread(&pixels[x][y].b, 1, 1, img);
+			fread(&pixels[x][y].g, 1, 1, img);
+			fread(&pixels[x][y].r, 1, 1, img);
+			pixels[x][y].a = 255; // default alpha to 100% since 24 bpp does not have alpha information
+			DrawPixel(x, y, pixels[x][y]);
 		}
 	}
+	EndDrawing();
+
+	while (!WindowShouldClose()) { /* do nothing */ }
 
 	CloseWindow();
 
