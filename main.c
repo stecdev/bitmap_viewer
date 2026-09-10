@@ -89,13 +89,13 @@ int main(int argc, char* argv[]) {
 	fseek(img, offset, SEEK_SET);
 	printf("Beginning of image reached, reading...\n\n");
 
-	// open window at 1 fps
+	// open window at 60 fps
 	char title[150];
 	sprintf(title,"BMP Image Viewer (%s) | ID: %c%c, Width: %d, Height: %d, BPP: %d", argv[1], header[0], header[1], width, height, bpp);
 	InitWindow(width, height, title);
 	SetTargetFPS(60);
 
-	// read & dump the image in an array of pixel values, plus draw initial image
+	// read & dump the image in an array of pixel values, plus draw initial image (remove later)
 	Color pixels[width][height];
 	BeginDrawing();
 	ClearBackground(BLACK);
